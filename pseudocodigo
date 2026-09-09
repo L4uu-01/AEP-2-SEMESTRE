@@ -1,0 +1,345 @@
+programa
+{
+    inteiro codigo[100]
+    cadeia escola[100]
+    cadeia tema[100]
+    cadeia data[100]
+    cadeia publico[100]
+    cadeia responsavel[100]
+    inteiro quantidade[100]
+    inteiro quantidadeEfetiva[100]
+    cadeia situacao[100]
+
+    inteiro totalAcoes = 0
+
+
+    funcao inicio()
+    {
+        inteiro opcao = -1
+
+        enquanto (opcao != 0)
+        {
+            escreva("\n========================================\n")
+            escreva("              PSE EM ACAO\n")
+            escreva("========================================\n")
+            escreva("1 - Cadastrar acao\n")
+            escreva("2 - Listar acoes\n")
+            escreva("3 - Pesquisar acao\n")
+            escreva("4 - Atualizar situacao\n")
+            escreva("5 - Gerar resumo\n")
+            escreva("0 - Sair\n")
+            escreva("Escolha uma opcao: ")
+            leia(opcao)
+
+            se (opcao == 1)
+            {
+                cadastrarAcao()
+            }
+            senao se (opcao == 2)
+            {
+                listarAcoes()
+            }
+            senao se (opcao == 3)
+            {
+                pesquisarAcoes()
+            }
+            senao se (opcao == 4)
+            {
+                atualizarSituacao()
+            }
+            senao se (opcao == 5)
+            {
+                gerarResumo()
+            }
+            senao se (opcao == 0)
+            {
+                escreva("\nPrograma encerrado.\n")
+            }
+            senao
+            {
+                escreva("\nOpcao invalida.\n")
+            }
+        }
+    }
+
+
+    funcao cadastrarAcao()
+    {
+        inteiro novoCodigo
+        inteiro novaQuantidade
+
+        escreva("\n========================================\n")
+        escreva("          CADASTRAR NOVA ACAO\n")
+        escreva("========================================\n")
+
+        escreva("Digite o codigo da acao: ")
+        leia(novoCodigo)
+
+        escreva("Digite o nome da escola: ")
+        leia(escola[totalAcoes])
+
+        escreva("Digite o tema da acao: ")
+        leia(tema[totalAcoes])
+
+        escreva("Digite a data prevista: ")
+        leia(data[totalAcoes])
+
+        escreva("Digite o publico-alvo: ")
+        leia(publico[totalAcoes])
+
+        escreva("Digite o responsavel: ")
+        leia(responsavel[totalAcoes])
+
+        escreva("Digite a quantidade prevista de participantes: ")
+        leia(novaQuantidade)
+
+        se (novaQuantidade <= 0)
+        {
+            escreva("\nQuantidade invalida. A acao nao foi cadastrada.\n")
+        }
+        senao
+        {
+            codigo[totalAcoes] = novoCodigo
+            quantidade[totalAcoes] = novaQuantidade
+            quantidadeEfetiva[totalAcoes] = 0
+            situacao[totalAcoes] = "Planejada"
+
+            totalAcoes = totalAcoes + 1
+
+            escreva("\nAcao cadastrada com sucesso!\n")
+        }
+    }
+
+
+    funcao listarAcoes()
+    {
+        inteiro i
+
+        escreva("\n========================================\n")
+        escreva("              LISTAR ACOES\n")
+        escreva("========================================\n")
+
+        se (totalAcoes == 0)
+        {
+            escreva("Nenhuma acao cadastrada.\n")
+        }
+        senao
+        {
+            para (i = 0; i < totalAcoes; i++)
+            {
+                escreva("\n----------------------------------------\n")
+                escreva("Codigo: ", codigo[i], "\n")
+                escreva("Escola: ", escola[i], "\n")
+                escreva("Tema: ", tema[i], "\n")
+                escreva("Data: ", data[i], "\n")
+                escreva("Publico-alvo: ", publico[i], "\n")
+                escreva("Responsavel: ", responsavel[i], "\n")
+                escreva("Quantidade prevista: ", quantidade[i], "\n")
+                escreva("Quantidade efetiva: ", quantidadeEfetiva[i], "\n")
+                escreva("Situacao: ", situacao[i], "\n")
+            }
+        }
+    }
+
+
+    funcao pesquisarAcoes()
+    {
+        inteiro opcaoPesquisa
+        inteiro codigoBusca
+        cadeia escolaBusca
+        cadeia temaBusca
+        inteiro i
+        inteiro encontrou = 0
+
+        escreva("\n========================================\n")
+        escreva("            PESQUISAR ACAO\n")
+        escreva("========================================\n")
+
+        escreva("1 - Pesquisar por codigo\n")
+        escreva("2 - Pesquisar por escola\n")
+        escreva("3 - Pesquisar por tema\n")
+        escreva("Escolha uma opcao: ")
+        leia(opcaoPesquisa)
+
+        se (opcaoPesquisa == 1)
+        {
+            escreva("Digite o codigo: ")
+            leia(codigoBusca)
+
+            para (i = 0; i < totalAcoes; i++)
+            {
+                se (codigo[i] == codigoBusca)
+                {
+                    escreva("\nAcao encontrada!\n")
+                    escreva("Escola: ", escola[i], "\n")
+                    escreva("Tema: ", tema[i], "\n")
+                    escreva("Situacao: ", situacao[i], "\n")
+
+                    encontrou = 1
+                }
+            }
+        }
+        senao se (opcaoPesquisa == 2)
+        {
+            escreva("Digite o nome da escola: ")
+            leia(escolaBusca)
+
+            para (i = 0; i < totalAcoes; i++)
+            {
+                se (escola[i] == escolaBusca)
+                {
+                    escreva("\nAcao encontrada!\n")
+                    escreva("Codigo: ", codigo[i], "\n")
+                    escreva("Tema: ", tema[i], "\n")
+                    escreva("Situacao: ", situacao[i], "\n")
+
+                    encontrou = 1
+                }
+            }
+        }
+        senao se (opcaoPesquisa == 3)
+        {
+            escreva("Digite o tema: ")
+            leia(temaBusca)
+
+            para (i = 0; i < totalAcoes; i++)
+            {
+                se (tema[i] == temaBusca)
+                {
+                    escreva("\nAcao encontrada!\n")
+                    escreva("Codigo: ", codigo[i], "\n")
+                    escreva("Escola: ", escola[i], "\n")
+                    escreva("Situacao: ", situacao[i], "\n")
+
+                    encontrou = 1
+                }
+            }
+        }
+        senao
+        {
+            escreva("\nOpcao invalida.\n")
+        }
+
+        se (encontrou == 0)
+        {
+            escreva("\nNenhuma acao encontrada.\n")
+        }
+    }
+
+
+    funcao atualizarSituacao()
+    {
+        inteiro codigoBusca
+        inteiro opcaoSituacao
+        inteiro novaQuantidade
+        inteiro i
+        inteiro encontrou = 0
+
+        escreva("\n========================================\n")
+        escreva("          ATUALIZAR SITUACAO\n")
+        escreva("========================================\n")
+
+        escreva("Digite o codigo da acao: ")
+        leia(codigoBusca)
+
+        para (i = 0; i < totalAcoes; i++)
+        {
+            se (codigo[i] == codigoBusca)
+            {
+                encontrou = 1
+
+                escreva("\nAcao encontrada: ", escola[i], "\n")
+                escreva("1 - Planejada\n")
+                escreva("2 - Realizada\n")
+                escreva("3 - Cancelada\n")
+                escreva("Escolha a nova situacao: ")
+                leia(opcaoSituacao)
+
+                se (opcaoSituacao == 1)
+                {
+                    situacao[i] = "Planejada"
+                    escreva("\nSituacao atualizada.\n")
+                }
+                senao se (opcaoSituacao == 2)
+                {
+                    escreva("Digite a quantidade efetiva de participantes: ")
+                    leia(novaQuantidade)
+
+                    se (novaQuantidade < 0)
+                    {
+                        escreva("\nQuantidade invalida.\n")
+                    }
+                    senao
+                    {
+                        situacao[i] = "Realizada"
+                        quantidadeEfetiva[i] = novaQuantidade
+
+                        escreva("\nSituacao atualizada.\n")
+                    }
+                }
+                senao se (opcaoSituacao == 3)
+                {
+                    situacao[i] = "Cancelada"
+                    escreva("\nSituacao atualizada.\n")
+                }
+                senao
+                {
+                    escreva("\nOpcao invalida.\n")
+                }
+            }
+        }
+
+        se (encontrou == 0)
+        {
+            escreva("\nAcao nao encontrada.\n")
+        }
+    }
+
+
+    funcao gerarResumo()
+    {
+        inteiro i
+        inteiro planejadas = 0
+        inteiro realizadas = 0
+        inteiro canceladas = 0
+        inteiro totalParticipantes = 0
+        real percentual
+
+        escreva("\n========================================\n")
+        escreva("              RESUMO GERAL\n")
+        escreva("========================================\n")
+
+        para (i = 0; i < totalAcoes; i++)
+        {
+            se (situacao[i] == "Planejada")
+            {
+                planejadas = planejadas + 1
+            }
+            senao se (situacao[i] == "Realizada")
+            {
+                realizadas = realizadas + 1
+                totalParticipantes = totalParticipantes + quantidadeEfetiva[i]
+            }
+            senao se (situacao[i] == "Cancelada")
+            {
+                canceladas = canceladas + 1
+            }
+        }
+
+        escreva("Total de acoes: ", totalAcoes, "\n")
+        escreva("Acoes planejadas: ", planejadas, "\n")
+        escreva("Acoes realizadas: ", realizadas, "\n")
+        escreva("Acoes canceladas: ", canceladas, "\n")
+        escreva("Total de participantes: ", totalParticipantes, "\n")
+
+        se (totalAcoes > 0)
+        {
+            percentual = (realizadas * 100) / totalAcoes
+            escreva("Percentual de acoes realizadas: ", percentual, "%\n")
+        }
+        senao
+        {
+            escreva("Percentual: 0%\n")
+        }
+    }
+}
