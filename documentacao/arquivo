@@ -1,1 +1,63 @@
+3.1 Usuários Envolvidos	
+1.	Usuário Principal: 
+Equipe responsável pelo programa Saúde Mental na escola (PSE).
+2.	Usuários Relacionados:
+•	Profissionais da área da saúde e educação: participam do planejamento e acompanhamento das ações do PSE.
+
+3.1 Escopo
+	O sistema irá permitir:
+•	Cadastrar ações do PSE;
+•	Informar escola, data, tema, público-alvo e responsável;
+•	Informar a quantidade prevista de participantes;
+•	Listar ações cadastradas;
+•	Alterar situação das ações;
+•	Registrar participantes quando a ação for realizada;
+•	Gerar resumo das ações.
+
+3.2 Requisitos
+3.2.1 Requisitos Funcionais
+•	Requisito Funcional 1 (Cadastrar ação): O sistema deve permitir cadastrar uma ação do PSE contendo código, escola, tema, data prevista, público-alvo, responsável, quantidade prevista e situação inicial.
+•	Requisito Funcional 2 (Listar ações): O sistema deve permitir visualizar as ações cadastradas e suas respectivas informações.
+•	Requisito Funcional 3 (Pesquisar ações): O sistema deve permitir pesquisar uma ação pelo código, escola ou tema.
+•	Requisito Funcional 4 (Atualizar situação): O sistema deve permitir alterar a situação de uma ação para planejada, realizada ou cancelada.
+•	Requisito Funcional 5 (Registrar participantes): O sistema deve permitir registrar a quantidade efetiva de participantes quando uma ação for marcada como realizada.
+•	Requisito Funcional 6 (Gerar resumo) sistema deve apresentar um resumo contendo a quantidade de ações planejadas, realizadas e canceladas, além do total de participantes e do percentual de participação.
+
+3.2.2 Requisitos Não Funcionais
+•	Requisito Não Funcional 1 (Usabilidade): O sistema deve apresentar mensagens claras e um menu simples para facilitar a utilização por parte do usuário.
+•	Requisito Não Funcional 2 (Desempenho): O sistema deve responder às operações realizadas pelo usuário sem atrasos perceptíveis em sua execução.
+•	Requisito Não Funcional 3 (Privacidade): O sistema deve utilizar somente dados fictícios e informações coletivas, não armazenando dados sensíveis individuais dos estudantes.
+	
+3.3	Processo de desenvolvimento
+Processo de desenvolvimento selecionado: incremental.
+	Sprint 01 (Levantamento):
+1.	Compreender o problema;
+2.	Analisar o funcionamento do PSE;
+3.	Definir os usuários;
+4.	Definir o escopo.
+
+	Sprint 02 (Modelagem):
+1.	Criar requisitos Funcionais;
+2.	Criar requisitos não funcionais;
+3.	Elaborar fluxograma geral;
+4.	Elaborar fluxograma do cadastro;
+5.	Desenvolver pseudocódigos.
+
+	Sprint 03 (Implementação):
+1.	Criar o menu;
+2.	Implementar cadastro;
+3.	Implementar listagem;
+4.	Implementar pesquisa.
+
+	Sprint 04 (Implementação e testes):
+1.	Implementar atualização de situação;
+2.	Implementar resumo;
+3.	Realizar testes;
+4.	Corrigir erros.
+
+	Sprint 05 (Documentação):
+1.	Organizar o GitHub;
+2.	Atualizar documentação;
+3.	Preparar apresentação.
+
 
